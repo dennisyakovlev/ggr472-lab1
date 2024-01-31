@@ -1,0 +1,124 @@
+<!-- Resources Used -->
+<!--
+    Flexbox layout
+    https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
+    Jquery docs
+    https://api.jquery.com/
+
+    Display formatted code using <pre> tag. 
+    https://stackoverflow.com/questions/53850834/how-to-format-json-file-view-on-html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Website</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div class="flexbox">
+        <div class="col col-1">
+            <div class="content">
+                <div class="ctext">
+                    <h1 class="padding">GeoJson Report</h1>
+                </div>
+                <div class="ctext">
+                    <p class="p-padding">
+                        The geojson file is a JSON file. It has the same structure.
+                        There are key-value pairs where the keys are denoted as string
+                        with "", a delimeter of : is used to indicate the value is starting.
+                        The value has many forms, in the geojson can be found strings
+                        using "", lists using [], numbers as numbers, and more key-value
+                        pairs using {}. Respectively, in the file on the right examples can
+                        be seen with <code>"type": "Feature"</code>, <code>"coordinates": [...]</code>,
+                        <code>[-79.40011464833961, 43.65795077691766]</code>, and
+                        <code>"properties": {}</code>.
+                    </p>
+                    <p class="p-padding">
+                        Of course, the data represents physical things in a geojson. The
+                        nested key-value pairs of <code>"geometry": {"coordinates": [...]}</code>
+                        is the polygon drawn, with each list of two values representing xy
+                        coordinates of the point. The <code>"type": "Polygon"</code> key-value
+                        pair tells us the geojson represents a polygon.
+                    </p>
+                    <p class="p-padding">
+                        In terms of size, the shapefile is larger in terms of storage space
+                        used. However, my comparison is with rather small files of around 1KB,
+                        so it is possible the metadata is a majority of the shapefile size. This
+                        means its possible for large datasets that shapefiles are more compact.
+                        The geojson is in plain text format, seemingly in plain ASCII encoding.
+                        The only file which is human-readable format is the <i>.prj</i> file,
+                        with the other three being in binary format.
+                    </p>
+                    <p class="p-padding">
+                        Some advanatages of using a geojson are it is a plain text file, meaning
+                        its readable by humans, it uses JSON format, which is a standard format
+                        meaning it will compatible with alot of existing infrastructure. Another
+                        advantage is ease of editbility. Some disadvantages of a geojson could be
+                        is it similar to raster data, where each bit of data must be explcitilly
+                        defined, meaning its size will increase relative to vector based formats.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col col-2">
+            <div class="content">
+                <p class="p-padding">
+                    The source is accessible for the <a href="./data/geojson/map.geojson">geojson</a> and
+                    <a href="./data/shapefile/">shapefile</a>.
+                </p>
+                <p class="p-padding">
+                    You can explore the files below by clicking to expand. Note the binary
+                    files may be displayed incorrectly.
+                </p>
+                    <ul>
+                        <li>
+                            <p class="button">geojson</p>
+                            <div class="collapsed">
+                                <pre id="f-geojson"></pre>
+                            </div>
+                        </li>
+                        <li>
+                            <p class="button">layers</p>
+                            <div class="collapsed">
+                                <ul>
+                                    <li>
+                                        <p class="button">POLYGON.dbf</p>
+                                        <div class="collapsed">
+                                            <pre id="f-polygon-dbf"></pre>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <p class="button">POLYGON.prj</p>
+                                        <div class="collapsed">
+                                            <pre id="f-polygon-prj"></pre>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <p class="button">POLYGON.shp</p>
+                                        <div class="collapsed">
+                                            <pre id="f-polygon-shp"></pre>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <p class="button">POLYGON.shx</p>
+                                        <div class="collapsed">
+                                            <pre id="f-polygon-shx"></pre>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+            </div>
+        </div>
+    </div>
+  </body>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="main.js"></script>
+</html>
